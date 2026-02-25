@@ -1,0 +1,34 @@
+# Vivado project files
+vivado_project/
+*.xpr
+*.xpr.user
+
+# Vivado generated files
+*.log
+*.jou
+*.pb
+*.wdb
+.Xil/
+xsim.dir/
+
+# Synthesis/Implementation outputs
+*.bit
+*.bin
+*.mcs
+*.ltx
+
+# Reports (regeneratable)
+reports/
+
+# Simulation artifacts
+sim/test_data/*.hex
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
