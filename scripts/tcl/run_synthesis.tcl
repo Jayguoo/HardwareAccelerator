@@ -20,6 +20,7 @@ if {[get_property STATUS [get_runs synth_1]] != "synth_design Complete!"} {
 open_run synth_1
 
 # Generate reports
+file mkdir reports
 report_utilization -file reports/utilization_synth.rpt
 report_timing_summary -file reports/timing_synth.rpt
 report_power -file reports/power_synth.rpt

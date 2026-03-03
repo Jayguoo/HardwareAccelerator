@@ -286,14 +286,13 @@ module tb_systolic_array;
         clear_acc = 1'b0;
         wait_cycles(1);
 
-        // Feed row elements one at a time through left edge (row 0 only)
-        // A[row_idx][0], A[row_idx][1], ... each enters at row 0 and flows right
+        // Feed A[row_idx][k] into row k of the array (one element per cycle).
+        // This provides natural 1-cycle skewing: A[row_idx][0] enters row 0 at
+        // cycle 0, A[row_idx][1] enters row 1 at cycle 1, etc.
         enable = 1'b1;
         for (int k = 0; k < MATRIX_DIM; k++) begin
-            a_row_in[0] = mat_a[row_idx][k];
-            // All other rows get zero
-            for (int r = 1; r < MATRIX_DIM; r++) begin
-                a_row_in[r] = '0;
+            for (int r = 0; r < MATRIX_DIM; r++) begin
+                a_row_in[r] = (r == k) ? mat_a[row_idx][k] : '0;
             end
             @(posedge clk);
         end

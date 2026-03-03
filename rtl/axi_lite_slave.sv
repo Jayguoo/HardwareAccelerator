@@ -92,8 +92,6 @@ module axi_lite_slave #(
     //=========================================================================
     logic [AXI_ADDR_WIDTH-1:0] axi_awaddr;
     logic [AXI_ADDR_WIDTH-1:0] axi_araddr;
-    logic                      aw_en;      // Write address handshake done
-    logic                      w_en;       // Write data handshake done
 
     // Registers
     logic [7:0]  dim_reg;
@@ -116,6 +114,14 @@ module axi_lite_slave #(
 
     logic        rd_is_bram;     // Current read targets a BRAM
     logic [31:0] rd_reg_data;    // Data for register reads
+
+    // Separate write-path and read-path BRAM signals to avoid multi-driver
+    logic [BRAM_ADDR_W-1:0] wr_a_addr, rd_a_addr;
+    logic                   wr_a_en,   rd_a_en;
+    logic [BRAM_ADDR_W-1:0] wr_b_addr, rd_b_addr;
+    logic                   wr_b_en,   rd_b_en;
+    logic                   rd_r_en;
+    logic [BRAM_ADDR_W-1:0] rd_r_addr;
 
     //=========================================================================
     // Address Region Decode
@@ -154,17 +160,21 @@ module axi_lite_slave #(
             core_start     <= 1'b0;
             core_clear_done <= 1'b0;
             dim_reg        <= MATRIX_DIM[7:0];
-            host_a_en      <= 1'b0;
+            wr_a_en        <= 1'b0;
+            wr_a_addr      <= '0;
             host_a_we      <= 1'b0;
-            host_b_en      <= 1'b0;
+            host_a_wdata   <= '0;
+            wr_b_en        <= 1'b0;
+            wr_b_addr      <= '0;
             host_b_we      <= 1'b0;
+            host_b_wdata   <= '0;
         end else begin
             // Default: deassert one-shot signals
             core_start      <= 1'b0;
             core_clear_done <= 1'b0;
-            host_a_en       <= 1'b0;
+            wr_a_en         <= 1'b0;
             host_a_we       <= 1'b0;
-            host_b_en       <= 1'b0;
+            wr_b_en         <= 1'b0;
             host_b_we       <= 1'b0;
 
             case (wr_state)
@@ -177,8 +187,29 @@ module axi_lite_slave #(
                         axi_awaddr    <= S_AXI_AWADDR;
                         wr_state      <= WR_RESP;
 
-                        // Execute write
-                        do_write(S_AXI_AWADDR, S_AXI_WDATA);
+                        // Execute write inline
+                        if (is_mat_a_region(S_AXI_AWADDR)) begin
+                            wr_a_addr    <= to_bram_addr(S_AXI_AWADDR, ADDR_MAT_A_BASE);
+                            host_a_wdata <= S_AXI_WDATA;
+                            wr_a_en      <= 1'b1;
+                            host_a_we    <= 1'b1;
+                        end else if (is_mat_b_region(S_AXI_AWADDR)) begin
+                            wr_b_addr    <= to_bram_addr(S_AXI_AWADDR, ADDR_MAT_B_BASE);
+                            host_b_wdata <= S_AXI_WDATA;
+                            wr_b_en      <= 1'b1;
+                            host_b_we    <= 1'b1;
+                        end else begin
+                            case (S_AXI_AWADDR[7:0])
+                                ADDR_CTRL_REG[7:0]: begin
+                                    core_start      <= S_AXI_WDATA[0];
+                                    core_clear_done <= S_AXI_WDATA[1];
+                                end
+                                ADDR_DIM_REG[7:0]: begin
+                                    dim_reg <= S_AXI_WDATA[7:0];
+                                end
+                                default: ;
+                            endcase
+                        end
                     end else if (S_AXI_AWVALID) begin
                         S_AXI_AWREADY <= 1'b1;
                         axi_awaddr    <= S_AXI_AWADDR;
@@ -192,8 +223,29 @@ module axi_lite_slave #(
                         S_AXI_WREADY <= 1'b1;
                         wr_state     <= WR_RESP;
 
-                        // Execute write
-                        do_write(axi_awaddr, S_AXI_WDATA);
+                        // Execute write inline
+                        if (is_mat_a_region(axi_awaddr)) begin
+                            wr_a_addr    <= to_bram_addr(axi_awaddr, ADDR_MAT_A_BASE);
+                            host_a_wdata <= S_AXI_WDATA;
+                            wr_a_en      <= 1'b1;
+                            host_a_we    <= 1'b1;
+                        end else if (is_mat_b_region(axi_awaddr)) begin
+                            wr_b_addr    <= to_bram_addr(axi_awaddr, ADDR_MAT_B_BASE);
+                            host_b_wdata <= S_AXI_WDATA;
+                            wr_b_en      <= 1'b1;
+                            host_b_we    <= 1'b1;
+                        end else begin
+                            case (axi_awaddr[7:0])
+                                ADDR_CTRL_REG[7:0]: begin
+                                    core_start      <= S_AXI_WDATA[0];
+                                    core_clear_done <= S_AXI_WDATA[1];
+                                end
+                                ADDR_DIM_REG[7:0]: begin
+                                    dim_reg <= S_AXI_WDATA[7:0];
+                                end
+                                default: ;
+                            endcase
+                        end
                     end
                 end
 
@@ -214,36 +266,6 @@ module axi_lite_slave #(
         end
     end
 
-    // Write execution helper (called from within always_ff)
-    task automatic do_write(
-        input logic [AXI_ADDR_WIDTH-1:0] addr,
-        input logic [AXI_DATA_WIDTH-1:0] data
-    );
-        if (is_mat_a_region(addr)) begin
-            host_a_addr  = to_bram_addr(addr, ADDR_MAT_A_BASE);
-            host_a_wdata = data;
-            host_a_en    = 1'b1;
-            host_a_we    = 1'b1;
-        end else if (is_mat_b_region(addr)) begin
-            host_b_addr  = to_bram_addr(addr, ADDR_MAT_B_BASE);
-            host_b_wdata = data;
-            host_b_en    = 1'b1;
-            host_b_we    = 1'b1;
-        end else begin
-            // Control registers
-            case (addr[7:0])
-                ADDR_CTRL_REG[7:0]: begin
-                    core_start      = data[0];
-                    core_clear_done = data[1];
-                end
-                ADDR_DIM_REG[7:0]: begin
-                    dim_reg = data[7:0];
-                end
-                default: ; // Ignore writes to read-only or unmapped
-            endcase
-        end
-    endtask
-
     //=========================================================================
     // Read Channel FSM
     //=========================================================================
@@ -257,12 +279,17 @@ module axi_lite_slave #(
             axi_araddr    <= '0;
             rd_is_bram    <= 1'b0;
             rd_reg_data   <= '0;
-            host_r_en     <= 1'b0;
+            rd_a_en       <= 1'b0;
+            rd_a_addr     <= '0;
+            rd_b_en       <= 1'b0;
+            rd_b_addr     <= '0;
+            rd_r_en       <= 1'b0;
+            rd_r_addr     <= '0;
         end else begin
             // Default
-            host_a_en <= host_a_en; // Keep state from write FSM
-            host_b_en <= host_b_en;
-            host_r_en <= 1'b0;
+            rd_a_en <= 1'b0;
+            rd_b_en <= 1'b0;
+            rd_r_en <= 1'b0;
 
             case (rd_state)
                 RD_IDLE: begin
@@ -278,14 +305,14 @@ module axi_lite_slave #(
                             rd_is_bram <= 1'b1;
                             // Issue BRAM read
                             if (is_mat_a_region(S_AXI_ARADDR)) begin
-                                host_a_addr = to_bram_addr(S_AXI_ARADDR, ADDR_MAT_A_BASE);
-                                host_a_en   = 1'b1;
+                                rd_a_addr <= to_bram_addr(S_AXI_ARADDR, ADDR_MAT_A_BASE);
+                                rd_a_en   <= 1'b1;
                             end else if (is_mat_b_region(S_AXI_ARADDR)) begin
-                                host_b_addr = to_bram_addr(S_AXI_ARADDR, ADDR_MAT_B_BASE);
-                                host_b_en   = 1'b1;
+                                rd_b_addr <= to_bram_addr(S_AXI_ARADDR, ADDR_MAT_B_BASE);
+                                rd_b_en   <= 1'b1;
                             end else begin
-                                host_r_addr = to_bram_addr(S_AXI_ARADDR, ADDR_MAT_R_BASE);
-                                host_r_en   = 1'b1;
+                                rd_r_addr <= to_bram_addr(S_AXI_ARADDR, ADDR_MAT_R_BASE);
+                                rd_r_en   <= 1'b1;
                             end
                             rd_state <= RD_BRAM_WAIT;
                         end else begin
@@ -347,6 +374,23 @@ module axi_lite_slave #(
                 default: rd_state <= RD_IDLE;
             endcase
         end
+    end
+
+    //=========================================================================
+    // BRAM Port Muxing — combine write-path and read-path signals
+    //
+    // Write and read never target the same BRAM simultaneously in AXI-Lite
+    // (single-beat protocol), so a simple OR-mux is safe here.
+    //=========================================================================
+    always_comb begin
+        host_a_addr = wr_a_en ? wr_a_addr : rd_a_addr;
+        host_a_en   = wr_a_en | rd_a_en;
+
+        host_b_addr = wr_b_en ? wr_b_addr : rd_b_addr;
+        host_b_en   = wr_b_en | rd_b_en;
+
+        host_r_addr = rd_r_addr;
+        host_r_en   = rd_r_en;
     end
 
 endmodule

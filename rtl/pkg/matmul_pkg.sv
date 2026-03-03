@@ -10,7 +10,7 @@ package matmul_pkg;
 
     // Data widths
     parameter int DATA_WIDTH     = 16;   // Input element width (INT16 signed)
-    parameter int ACC_WIDTH      = 32;   // Accumulator width (prevents overflow)
+    parameter int ACC_WIDTH      = 32;   // Accumulator width (software must bound inputs to prevent overflow)
     parameter int RESULT_WIDTH   = 32;   // Output result width
 
     // AXI-Lite parameters

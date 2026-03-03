@@ -1,13 +1,13 @@
+set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports S_AXI_ACLK]
+set_property -dict {PACKAGE_PIN D9 IOSTANDARD LVCMOS33} [get_ports S_AXI_ARESETN]
 ## Arty A7-35T Constraints for Matrix Multiply Accelerator
 ## Target: xc7a35ticsg324-1L
 
 ## 100 MHz System Clock
-set_property -dict { PACKAGE_PIN E3  IOSTANDARD LVCMOS33 } [get_ports { S_AXI_ACLK }]
-create_clock -add -name sys_clk -period 10.000 -waveform {0 5} [get_ports { S_AXI_ACLK }]
+create_clock -period 10.000 -name sys_clk -waveform {0.000 5.000} -add [get_ports S_AXI_ACLK]
 
 ## Reset — Active-low, directly active-low button (active when pressed = low)
 ## Button BTN0
-set_property -dict { PACKAGE_PIN D9  IOSTANDARD LVCMOS33 } [get_ports { S_AXI_ARESETN }]
 
 ## Status LEDs (active-high)
 ## LED4 (LD4) — Green: IDLE
@@ -26,3 +26,4 @@ set_property -dict { PACKAGE_PIN D9  IOSTANDARD LVCMOS33 } [get_ports { S_AXI_AR
 ## AXI signals are internal — no pin constraints needed.
 ## The constraints above are for standalone testing with debug LEDs.
 ## Uncomment LED/IRQ lines when adding a debug wrapper.
+

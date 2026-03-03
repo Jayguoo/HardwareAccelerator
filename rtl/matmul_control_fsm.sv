@@ -302,19 +302,26 @@ module matmul_control_fsm #(
                           (state == ST_STORE && next_state == ST_COMPUTE);
     assign sa_enable    = (state == ST_COMPUTE) || (state == ST_DRAIN);
 
-    // Feed A elements into row 0 of systolic array
-    // Data from BRAM A arrives 1 cycle after read, so we use the delayed data
+    // Feed A elements into the correct row of the systolic array.
+    // A[i][k] must enter row k so that PE(k,j) multiplies by weight B[k][j]
+    // and the vertical accumulation produces C[i][j] = sum_k(A[i][k]*B[k][j]).
+    // Data from BRAM A arrives 1 cycle after read, so we use delayed signals.
     logic a_data_valid;
+    logic [$clog2(MATRIX_DIM)-1:0] a_col_idx_d;
+
     always_ff @(posedge clk) begin
-        if (!rst_n)
+        if (!rst_n) begin
             a_data_valid <= 1'b0;
-        else
+            a_col_idx_d  <= '0;
+        end else begin
             a_data_valid <= (state == ST_COMPUTE);
+            a_col_idx_d  <= a_col_idx;
+        end
     end
 
     always_comb begin
         for (int r = 0; r < MATRIX_DIM; r++) begin
-            if (r == 0 && a_data_valid)
+            if (a_data_valid && r[$clog2(MATRIX_DIM)-1:0] == a_col_idx_d)
                 sa_a_row_in[r] = bram_a_rdata[DATA_WIDTH-1:0];
             else
                 sa_a_row_in[r] = '0;
