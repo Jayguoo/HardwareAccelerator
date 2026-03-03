@@ -1,0 +1,637 @@
+
+*** Running vivado
+    with args -log matmul_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source matmul_top.tcl
+
+
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Thu Feb 26 22:51:34 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source matmul_top.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 491.059 ; gain = 210.848
+Command: read_checkpoint -auto_incremental -incremental C:/Users/Jaygu/pp/HardwareAccelerator/matmul_accel/matmul_accel.srcs/utils_1/imports/synth_1/matmul_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Jaygu/pp/HardwareAccelerator/matmul_accel/matmul_accel.srcs/utils_1/imports/synth_1/matmul_top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top matmul_top -part xc7a35ticsg324-1L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
+INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 31372
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1177.598 ; gain = 493.160
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-11067] parameter 'MATRIX_DIM' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:9]
+WARNING: [Synth 8-11067] parameter 'DATA_WIDTH' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:12]
+WARNING: [Synth 8-11067] parameter 'ACC_WIDTH' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:13]
+WARNING: [Synth 8-11067] parameter 'RESULT_WIDTH' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:14]
+WARNING: [Synth 8-11067] parameter 'AXI_ADDR_WIDTH' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:17]
+WARNING: [Synth 8-11067] parameter 'AXI_DATA_WIDTH' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:18]
+WARNING: [Synth 8-11067] parameter 'NUM_PES' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:21]
+WARNING: [Synth 8-11067] parameter 'BRAM_DEPTH' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:22]
+WARNING: [Synth 8-11067] parameter 'BRAM_ADDR_W' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:23]
+WARNING: [Synth 8-11067] parameter 'IP_VERSION' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:26]
+WARNING: [Synth 8-11067] parameter 'ADDR_CTRL_REG' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:57]
+WARNING: [Synth 8-11067] parameter 'ADDR_STATUS_REG' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:58]
+WARNING: [Synth 8-11067] parameter 'ADDR_DIM_REG' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:59]
+WARNING: [Synth 8-11067] parameter 'ADDR_CYCLE_COUNT' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:60]
+WARNING: [Synth 8-11067] parameter 'ADDR_VERSION_REG' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:61]
+WARNING: [Synth 8-11067] parameter 'ADDR_CAPABILITY_REG' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:62]
+WARNING: [Synth 8-11067] parameter 'ADDR_MAT_A_BASE' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:63]
+WARNING: [Synth 8-11067] parameter 'ADDR_MAT_B_BASE' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:64]
+WARNING: [Synth 8-11067] parameter 'ADDR_MAT_R_BASE' declared inside package 'matmul_pkg' shall be treated as localparam [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/pkg/matmul_pkg.sv:65]
+INFO: [Synth 8-6157] synthesizing module 'matmul_top' [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/matmul_top.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'axi_lite_slave' [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/axi_lite_slave.sv:20]
+	Parameter MATRIX_DIM bound to: 32'sb00000000000000000000000000000100 
+	Parameter DATA_WIDTH bound to: 32'sb00000000000000000000000000010000 
+	Parameter ACC_WIDTH bound to: 32'sb00000000000000000000000000100000 
+	Parameter AXI_ADDR_WIDTH bound to: 32'sb00000000000000000000000000010000 
+	Parameter AXI_DATA_WIDTH bound to: 32'sb00000000000000000000000000100000 
+INFO: [Synth 8-6155] done synthesizing module 'axi_lite_slave' (0#1) [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/axi_lite_slave.sv:20]
+INFO: [Synth 8-6157] synthesizing module 'matmul_core' [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/matmul_core.sv:14]
+	Parameter MATRIX_DIM bound to: 32'sb00000000000000000000000000000100 
+	Parameter DATA_WIDTH bound to: 32'sb00000000000000000000000000010000 
+	Parameter ACC_WIDTH bound to: 32'sb00000000000000000000000000100000 
+INFO: [Synth 8-6157] synthesizing module 'bram_matrix' [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/bram_matrix.sv:11]
+	Parameter DATA_WIDTH bound to: 32'sb00000000000000000000000000100000 
+	Parameter DEPTH bound to: 32'sb00000000000000000000000000010000 
+	Parameter ADDR_WIDTH bound to: 32'sb00000000000000000000000000000100 
+INFO: [Synth 8-6155] done synthesizing module 'bram_matrix' (0#1) [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/bram_matrix.sv:11]
+INFO: [Synth 8-6157] synthesizing module 'systolic_array' [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/systolic_array.sv:19]
+	Parameter MATRIX_DIM bound to: 32'sb00000000000000000000000000000100 
+	Parameter DATA_WIDTH bound to: 32'sb00000000000000000000000000010000 
+	Parameter ACC_WIDTH bound to: 32'sb00000000000000000000000000100000 
+INFO: [Synth 8-6157] synthesizing module 'processing_element' [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/processing_element.sv:11]
+	Parameter DATA_WIDTH bound to: 32'sb00000000000000000000000000010000 
+	Parameter ACC_WIDTH bound to: 32'sb00000000000000000000000000100000 
+INFO: [Synth 8-6157] synthesizing module 'mac_unit' [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/mac_unit.sv:11]
+	Parameter DATA_WIDTH bound to: 32'sb00000000000000000000000000010000 
+	Parameter ACC_WIDTH bound to: 32'sb00000000000000000000000000100000 
+INFO: [Synth 8-6155] done synthesizing module 'mac_unit' (0#1) [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/mac_unit.sv:11]
+INFO: [Synth 8-6155] done synthesizing module 'processing_element' (0#1) [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/processing_element.sv:11]
+INFO: [Synth 8-6155] done synthesizing module 'systolic_array' (0#1) [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/systolic_array.sv:19]
+INFO: [Synth 8-6157] synthesizing module 'matmul_control_fsm' [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/matmul_control_fsm.sv:25]
+	Parameter MATRIX_DIM bound to: 32'sb00000000000000000000000000000100 
+	Parameter DATA_WIDTH bound to: 32'sb00000000000000000000000000010000 
+	Parameter ACC_WIDTH bound to: 32'sb00000000000000000000000000100000 
+INFO: [Synth 8-6155] done synthesizing module 'matmul_control_fsm' (0#1) [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/matmul_control_fsm.sv:25]
+INFO: [Synth 8-6155] done synthesizing module 'matmul_core' (0#1) [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/matmul_core.sv:14]
+INFO: [Synth 8-6155] done synthesizing module 'matmul_top' (0#1) [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/matmul_top.sv:13]
+WARNING: [Synth 8-6014] Unused sequential element host_a_we_reg was removed.  [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/axi_lite_slave.sv:165]
+WARNING: [Synth 8-6014] Unused sequential element host_b_we_reg was removed.  [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/axi_lite_slave.sv:169]
+WARNING: [Synth 8-6014] Unused sequential element weight_load_phase_reg was removed.  [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/matmul_control_fsm.sv:179]
+WARNING: [Synth 8-6014] Unused sequential element a_feed_phase_reg was removed.  [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/matmul_control_fsm.sv:180]
+WARNING: [Synth 8-7129] Port bram_a_rdata[31] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[30] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[29] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[28] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[27] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[26] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[25] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[24] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[23] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[22] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[21] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[20] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[19] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[18] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[17] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_a_rdata[16] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[31] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[30] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[29] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[28] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[27] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[26] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[25] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[24] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[23] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[22] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[21] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[20] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[19] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[18] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[17] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port bram_b_rdata[16] in module matmul_control_fsm is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WSTRB[3] in module axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WSTRB[2] in module axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WSTRB[1] in module axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WSTRB[0] in module axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module axi_lite_slave is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module axi_lite_slave is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1292.621 ; gain = 608.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1292.621 ; gain = 608.184
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1292.621 ; gain = 608.184
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 1292.621 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Jaygu/pp/HardwareAccelerator/constraints/arty_a7_35t.xdc]
+Finished Parsing XDC File [C:/Users/Jaygu/pp/HardwareAccelerator/constraints/arty_a7_35t.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Jaygu/pp/HardwareAccelerator/constraints/arty_a7_35t.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/matmul_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/matmul_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [C:/Users/Jaygu/pp/HardwareAccelerator/constraints/timing.xdc]
+Finished Parsing XDC File [C:/Users/Jaygu/pp/HardwareAccelerator/constraints/timing.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1371.375 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1371.375 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1371.375 ; gain = 686.938
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35ticsg324-1L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1371.375 ; gain = 686.938
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1371.375 ; gain = 686.938
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'wr_state_reg' in module 'axi_lite_slave'
+INFO: [Synth 8-802] inferred FSM for state register 'rd_state_reg' in module 'axi_lite_slave'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'matmul_control_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 WR_IDLE |                              001 |                               00
+                 WR_DATA |                              010 |                               01
+                 WR_RESP |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wr_state_reg' using encoding 'one-hot' in module 'axi_lite_slave'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 RD_IDLE |                              001 |                               00
+            RD_BRAM_WAIT |                              010 |                               01
+                 RD_DATA |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rd_state_reg' using encoding 'one-hot' in module 'axi_lite_slave'
+INFO: [Synth 8-3971] The signal "bram_matrix:/mem_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 ST_IDLE |                              000 |                             0000
+               ST_LOAD_B |                              110 |                             0001
+              ST_COMPUTE |                              100 |                             0010
+                ST_DRAIN |                              101 |                             0011
+                ST_STORE |                              011 |                             0100
+                 ST_DONE |                              010 |                             0101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'matmul_control_fsm'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1371.375 ; gain = 686.938
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 3     
+	   2 Input    9 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 5     
++---Registers : 
+	               32 Bit    Registers := 27    
+	               16 Bit    Registers := 34    
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 5     
+	                2 Bit    Registers := 9     
+	                1 Bit    Registers := 16    
++---RAMs : 
+	              512 Bit	(16 X 32 bit)          RAMs := 3     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 4     
+	   6 Input   32 Bit        Muxes := 1     
+	   4 Input   32 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 1     
+	   6 Input    8 Bit        Muxes := 1     
+	   3 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 8     
+	   6 Input    4 Bit        Muxes := 2     
+	   3 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 10    
+	   6 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 2     
+	   6 Input    2 Bit        Muxes := 5     
+	   2 Input    1 Bit        Muxes := 43    
+	   3 Input    1 Bit        Muxes := 35    
+	   6 Input    1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C:0x0)'+(A2*B2)'.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C'+(A2*B2)')'.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C'+(A2*B2)')'.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C'+(A2*B2)')'.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C:0x0)'+(A2*B2)'.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C'+(A2*B2)')'.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C'+(A2*B2)')'.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C'+(A2*B2)')'.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C:0x0)'+(A2*B2)'.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C'+((A:0x0)'*B2)')'.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[0].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C'+((A:0x0)'*B2)')'.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[0].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C'+((A:0x0)'*B2)')'.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[0].pe_inst/a_delay_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: Generating DSP u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_out_reg_reg, operation Mode is: (C:0x0)'+(A*B2)'.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/weight_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_in_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_out_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: register u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/product_reg_reg is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_out_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_out_reg_reg.
+DSP Report: operator u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/product_reg0 is absorbed into DSP u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_out_reg_reg.
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module matmul_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module matmul_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module matmul_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WSTRB[3] in module matmul_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WSTRB[2] in module matmul_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WSTRB[1] in module matmul_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_WSTRB[0] in module matmul_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module matmul_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module matmul_top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module matmul_top is either unconnected or has no load
+INFO: [Synth 8-12589] Found 16 bits of RAM  (i_0) with no load. RAM width may be reduced from 32 to 16 
+WARNING: [Synth 8-3936] Found unconnected internal register 'u_core/u_bram_a/b_rdata_reg' and it is trimmed from '32' to '16' bits. [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/bram_matrix.sv:59]
+WARNING: [Synth 8-6014] Unused sequential element u_core/u_bram_a/mem_reg was removed. 
+INFO: [Synth 8-12589] Found 16 bits of RAM  (i_1) with no load. RAM width may be reduced from 32 to 16 
+WARNING: [Synth 8-3936] Found unconnected internal register 'u_core/u_bram_b/b_rdata_reg' and it is trimmed from '32' to '16' bits. [C:/Users/Jaygu/pp/HardwareAccelerator/rtl/bram_matrix.sv:59]
+WARNING: [Synth 8-6014] Unused sequential element u_core/u_bram_b/mem_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element u_core/u_bram_r/mem_reg was removed. 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1371.375 ; gain = 686.938
+---------------------------------------------------------------------------------
+ Sort Area is  u_core/u_systolic_array/gen_row[0].gen_col[1].pe_inst/u_mac/acc_out_reg_reg_2 : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[0].gen_col[2].pe_inst/u_mac/acc_out_reg_reg_7 : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[0].gen_col[3].pe_inst/u_mac/acc_out_reg_reg_b : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[1].gen_col[1].pe_inst/u_mac/acc_out_reg_reg_4 : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[1].gen_col[2].pe_inst/u_mac/acc_out_reg_reg_8 : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[1].gen_col[3].pe_inst/u_mac/acc_out_reg_reg_c : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[2].gen_col[1].pe_inst/u_mac/acc_out_reg_reg_5 : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[2].gen_col[2].pe_inst/u_mac/acc_out_reg_reg_9 : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[2].gen_col[3].pe_inst/u_mac/acc_out_reg_reg_d : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[3].gen_col[1].pe_inst/u_mac/acc_out_reg_reg_6 : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[3].gen_col[2].pe_inst/u_mac/acc_out_reg_reg_a : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[3].gen_col[3].pe_inst/u_mac/acc_out_reg_reg_e : 0 0 : 2160 2160 : Used 1 time 0
+ Sort Area is  u_core/u_systolic_array/gen_row[0].gen_col[0].pe_inst/u_mac/acc_out_reg_reg_0 : 0 0 : 2144 2144 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++-------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name  | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++-------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|bram_matrix: | mem_reg    | 16 x 32(WRITE_FIRST)   | W | R | 16 x 32(WRITE_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|bram_matrix: | mem_reg    | 16 x 32(WRITE_FIRST)   | W | R | 16 x 32(WRITE_FIRST)   | W | R | Port A and B     | 0      | 1      | 
++-------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+-------------------------+-----------+----------------------+-------------+
+|Module Name | RTL Object              | Inference | Size (Depth x Width) | Primitives  | 
++------------+-------------------------+-----------+----------------------+-------------+
+|matmul_top  | u_core/u_bram_r/mem_reg | Implied   | 16 x 32              | RAM32M x 6  | 
++------------+-------------------------+-----------+----------------------+-------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping          | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|matmul_top  | (C:0x0)'+(A2*B2)'    | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A2*B2)')'       | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A2*B2)')'       | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A2*B2)')'       | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C:0x0)'+(A2*B2)'    | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A2*B2)')'       | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A2*B2)')'       | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A2*B2)')'       | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C:0x0)'+(A2*B2)'    | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+((A:0x0)'*B2)')' | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+((A:0x0)'*B2)')' | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+((A:0x0)'*B2)')' | 16     | 16     | 32     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C:0x0)'+(A*B2)'     | 16     | 16     | 32     | -      | 32     | 0    | 1    | 1    | -    | -     | 1    | 1    | 
++------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1544.750 ; gain = 860.312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1549.293 ; gain = 864.855
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++-------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name  | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++-------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|bram_matrix: | mem_reg    | 16 x 32(WRITE_FIRST)   | W | R | 16 x 32(WRITE_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|bram_matrix: | mem_reg    | 16 x 32(WRITE_FIRST)   | W | R | 16 x 32(WRITE_FIRST)   | W | R | Port A and B     | 0      | 1      | 
++-------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++------------+-------------------------+-----------+----------------------+-------------+
+|Module Name | RTL Object              | Inference | Size (Depth x Width) | Primitives  | 
++------------+-------------------------+-----------+----------------------+-------------+
+|matmul_top  | u_core/u_bram_r/mem_reg | Implied   | 16 x 32              | RAM32M x 6  | 
++------------+-------------------------+-----------+----------------------+-------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance u_core/u_bram_a/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_core/u_bram_a/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_core/u_bram_b/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_core/u_bram_b/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1565.105 ; gain = 880.668
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1795.414 ; gain = 1110.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1795.414 ; gain = 1110.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1795.414 ; gain = 1110.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1795.414 ; gain = 1110.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1798.387 ; gain = 1113.949
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1798.387 ; gain = 1113.949
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+---------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                                                        | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+---------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|matmul_top  | u_core/u_systolic_array/gen_row[3].gen_col[0].pe_inst/u_mac/acc_out_reg_reg[16] | 6      | 17    | YES          | NO                 | YES               | 17     | 0       | 
++------------+---------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|matmul_top  | (C'+(A*B')')'   | 30     | 18     | 0      | -      | 32     | 0    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A'*B')')'  | 30     | 18     | 0      | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A''*B')')' | 30     | 18     | 0      | -      | 32     | 2    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A''*B')')' | 30     | 18     | 0      | -      | 32     | 2    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A'*B')')'  | 30     | 0      | 48     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A'*B')')'  | 0      | 18     | 48     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A'*B')')'  | 0      | 18     | 48     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A'*B')')'  | 30     | 0      | 48     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A'*B')')'  | 0      | 18     | 48     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A'*B')')'  | 0      | 18     | 48     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A'*B')')'  | 30     | 0      | 48     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A'*B')')'  | 0      | 18     | 48     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
+|matmul_top  | (C'+(A'*B')')'  | 0      | 18     | 48     | -      | 32     | 1    | 1    | 1    | -    | -     | 1    | 1    | 
++------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |    20|
+|3     |DSP48E1  |    13|
+|6     |LUT1     |     4|
+|7     |LUT2     |   122|
+|8     |LUT3     |    40|
+|9     |LUT4     |    67|
+|10    |LUT5     |    64|
+|11    |LUT6     |   106|
+|12    |RAM32M   |     5|
+|13    |RAM32X1D |     2|
+|14    |RAMB36E1 |     2|
+|15    |SRL16E   |    17|
+|16    |FDRE     |   433|
+|17    |FDSE     |     3|
+|18    |IBUF     |    71|
+|19    |OBUF     |    42|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1798.387 ; gain = 1113.949
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 16 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:25 . Memory (MB): peak = 1798.387 ; gain = 1035.195
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1798.387 ; gain = 1113.949
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1805.254 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 42 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1808.793 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 7 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 5 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
+
+Synth Design complete | Checksum: 86692dbc
+INFO: [Common 17-83] Releasing license: Synthesis
+50 Infos, 81 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1808.793 ; gain = 1311.441
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1808.793 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Jaygu/pp/HardwareAccelerator/matmul_accel/matmul_accel.runs/synth_1/matmul_top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file matmul_top_utilization_synth.rpt -pb matmul_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 26 22:52:14 2026...
